@@ -4,6 +4,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+html, body {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -15,7 +23,6 @@ body {
     margin: 0 auto;
     text-align: center;
 }
-/* Navegación */
 /* Navegación */
 /* Estilos generales para dispositivos grandes */
 nav {
