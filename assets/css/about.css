@@ -44,6 +44,34 @@ nav a {
         margin: 0 0.5rem; /* Reducir el margen entre los enlaces */
         font-size: 1rem; /* Reducir el tamaño de la fuente */
     }
+
+    /* Sección Sobre Mí */
+    .about {
+        padding: 50px 0; /* Reducir el padding en móviles */
+    }
+
+    .about-content {
+        flex-direction: column; /* Cambiar la dirección del flex para móviles */
+        gap: 1rem; /* Reducir el espacio entre los elementos */
+    }
+
+    .about-image img {
+        width: 150px; /* Reducir el tamaño de la imagen */
+        height: 150px; /* Ajustar la altura */
+    }
+
+    .about-text {
+        font-size: 1rem; /* Reducir el tamaño de la fuente */
+        max-width: 90%; /* Asegurarse de que el texto no se desborde */
+    }
+
+    .about h1 {
+        font-size: 2rem; /* Reducir el tamaño de los títulos */
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem; /* Reducir el tamaño del sub-título */
+    }
 }
 
 /* Sección Sobre Mí */
