@@ -127,14 +127,16 @@ footer {
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
     nav {
-        padding: 0.5rem 0; /* Reducir el padding para móviles */
+        padding: 0.3rem 0.4rem; /* Reduce el padding en móviles */
     }
 
     nav a {
         margin: 0 0.5rem; /* Reducir el margen entre los enlaces */
         font-size: 1rem;
     }
-
+    .nav-links {
+        gap: 0.3rem; /* Reduce el espacio entre los enlaces */
+    }
     /* Sección Sobre Mí */
     .about {
         padding: 50px 0; /* Reducir el padding en móviles */
