@@ -16,37 +16,48 @@ html, body {
 /* Barra de navegación */
 nav {
     position: fixed;
+    top: 0;
     width: 100%;
-    background-color: #2c3e50;
-    padding: 1rem 0;
-    z-index: 1000; /* Para asegurarse de que se superponga a otros elementos */
+    background: rgba(44, 62, 80, 0.9);
+    padding: 1rem 2rem;
     display: flex;
-    justify-content: flex-end;
-    align-items: center; /* Alineación vertical */
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    backdrop-filter: blur(5px);
+    transition: top 0.3s ease-in-out;
+    overflow: hidden;
 }
-.logo {
-    margin-right: auto; /* Asegura que el logo se alinee a la izquierda */
-    margin-left: 30px;
+
+/* Contenedor de enlaces */
+.nav-links {
+    display: flex;
+    flex-wrap: nowrap; /* Evita que los enlaces se bajen */
+    gap: 1rem; /* Espaciado uniforme */
 }
+
 /* Estilo de los enlaces en el nav */
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 1.2rem;
+    font-size: 0,9rem;
     font-weight: bold;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+    padding: 0.3rem 0.6rem;
 }
 
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
     nav {
-        flex-direction: row; /* Asegura que los elementos estén en fila */
-        padding: 0.5rem 0; /* Reducir el padding para móviles */
+        padding: 0.3rem 0.4rem; /* Reduce el padding en móviles */
+    }
+
+    .nav-links {
+        gap: 0.3rem; /* Reduce el espacio entre los enlaces */
     }
 
     nav a {
-        margin: 0 0.5rem; /* Reducir el margen entre los enlaces */
-        font-size: 1rem; /* Reducir el tamaño de la fuente */
+        font-size: 1rem; /* Reduce el tamaño del texto */
     }
 }
 
