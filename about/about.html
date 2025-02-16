@@ -7,14 +7,19 @@
     <meta name="keywords" content="Sobre Mí, Ciberseguridad, Administrador de Sistemas, Experiencia">
     <title>Sobre Mí - Víctor Suárez Cruz</title>
     <link rel="stylesheet" href="../assets/css/about.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <script src="../assets/js/about.js"></script>
 </head>
 <body>
     <!-- Barra de navegación -->
     <nav>
-        <a href="../index.html">Inicio</a>
-        <a href="../projects/projects.html">Proyectos</a>        
-        <a href="about.html">Sobre Mí</a>
-        <a href="../contact/contact.html">Contacto</a>
+        <div class="logo">VSC</div>
+        <div class="nav-links">
+            <a href="../index.html">Inicio</a>
+            <a href="../projects/projects.html">Proyectos</a>
+            <a href="about.html">Sobre Mí</a>
+            <a href="../contact/contact.html">Contacto</a>
+        </div>
     </nav>
 
     <!-- Sección Sobre Mí -->
@@ -25,10 +30,30 @@
                     <img src="../assets/img/me.jpg" alt="Foto de Víctor Suárez Cruz">
                 </div>
                 <div class="about-text">
-                    <h2>¡Hola! Soy Víctor Suárez Cruz</h2>
-                    <p>Soy Administrador de Sistemas con una especialización en <strong>Ciberseguridad</strong>. Mi pasión por la informática y la tecnología me ha llevado a desarrollar proyectos en diversas áreas, desde la gestión de redes hasta el diseño de soluciones de seguridad para infraestructuras digitales.</p>
-                    <p>A lo largo de mi carrera, he trabajado en diversas plataformas, gestionando servidores y redes, y mejorando la seguridad de los sistemas. Me encanta resolver problemas complejos y contribuir al desarrollo de entornos digitales seguros.</p>
-                    <p>Mi objetivo es seguir aprendiendo y creciendo en el campo de la <strong>ciberseguridad</strong>, mientras aporto mis conocimientos para crear soluciones innovadoras y efectivas en el mundo digital.</p>
+                    <h2>¡Hola! Soy <strong>Víctor Suárez Cruz</strong></h2>
+                    <p>Soy <strong>Administrador de Sistemas</strong> con una especialización en <strong>Ciberseguridad</strong>. 
+                    Mi pasión por la <strong>informática</strong> y la <strong>tecnología</strong> me ha llevado a desarrollar proyectos en diversas áreas, 
+                    desde la <strong>gestión de redes</strong> hasta el <strong>diseño de soluciones de seguridad</strong> para infraestructuras digitales.</p>
+                    
+                    <p>A lo largo de mi carrera, he trabajado en diversas <strong>plataformas</strong>, gestionando <strong>servidores</strong> y <strong>redes</strong>, 
+                    y mejorando la <strong>seguridad</strong> de los sistemas. Me encanta <strong>resolver problemas complejos</strong> y contribuir al desarrollo 
+                    de <strong>entornos digitales seguros</strong>.</p>
+                    
+                    <p>Mi objetivo es seguir aprendiendo y creciendo en el campo de la <strong>ciberseguridad</strong>, mientras aporto mis conocimientos para 
+                    crear <strong>soluciones innovadoras</strong> y efectivas en el mundo digital.</p>
+                    
+
+                    <!-- Botón para mostrar/ocultar el currículum en PDF -->
+                    <div class="cv-links">
+                        <button id="toggle-pdf-btn" class="btn">Ver mi currículum en PDF</button>
+                        <a href="/assets/pdf/CV Victor Suarez Cruz.pdf" class="btn" target="_blank">Descargar mi currículum</a>
+                    </div>
+
+                    <!-- Contenedor oculto del visor PDF -->
+                    <div id="pdf-viewer-container" style="display: none;">
+                        <h3>Currículum en PDF:</h3>
+                        <div id="pdf-viewer"></div> <!-- Aquí se renderiza el PDF -->
+                    </div>
                 </div>
             </div>
         </div>

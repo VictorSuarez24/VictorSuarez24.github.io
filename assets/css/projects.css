@@ -19,10 +19,16 @@ nav {
     width: 100%;
     background-color: #2c3e50;
     padding: 1rem 0;
-    text-align: center;
     z-index: 1000; /* Para asegurarse de que se superponga a otros elementos */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Alineación vertical */
 }
-
+.logo {
+    margin-right: auto; /* Asegura que el logo se alinee a la izquierda */
+    margin-left: 30px;
+}
+/* Estilo de los enlaces en el nav */
 nav a {
     color: white;
     text-decoration: none;
@@ -31,8 +37,17 @@ nav a {
     font-weight: bold;
 }
 
-nav a:hover {
-    color: #3498db;
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: row; /* Asegura que los elementos estén en fila */
+        padding: 0.5rem 0; /* Reducir el padding para móviles */
+    }
+
+    nav a {
+        margin: 0 0.5rem; /* Reducir el margen entre los enlaces */
+        font-size: 1rem; /* Reducir el tamaño de la fuente */
+    }
 }
 
 /* Sección de Proyectos */

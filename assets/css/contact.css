@@ -18,7 +18,7 @@ html, body {
     text-align: center;
 }
 
-/* Estilos para la barra de navegación */
+/* Barra de navegación */
 nav {
     position: fixed;
     width: 100%;
@@ -26,8 +26,16 @@ nav {
     padding: 1rem 0;
     text-align: center;
     z-index: 1000; /* Para asegurarse de que se superponga a otros elementos */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; /* Alineación vertical */
 }
-
+.logo {
+    margin-right: auto; /* Asegura que el logo se alinee a la izquierda */
+    margin-left: 30px;
+    color: white;
+}
+/* Estilo de los enlaces en el nav */
 nav a {
     color: white;
     text-decoration: none;
@@ -39,6 +47,7 @@ nav a {
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
     nav {
+        flex-direction: row; /* Asegura que los elementos estén en fila */
         padding: 0.5rem 0; /* Reducir el padding para móviles */
     }
 
