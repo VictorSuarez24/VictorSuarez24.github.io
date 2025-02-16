@@ -42,7 +42,7 @@ nav a {
 
     nav a {
         margin: 0 0.5rem; /* Reducir el margen entre los enlaces */
-        font-size: 1rem; /* Reducir el tamaño de la fuente */
+        font-size: 1rem;
     }
 
     /* Sección Sobre Mí */
@@ -52,7 +52,7 @@ nav a {
 
     .about-content {
         flex-direction: column; /* Cambiar la dirección del flex para móviles */
-        gap: 1rem; /* Reducir el espacio entre los elementos */
+        gap: 1rem;
     }
 
     .about-image img {
@@ -80,9 +80,9 @@ nav a {
     justify-content: center; /* Centra el contenido horizontalmente */
     align-items: center; /* Centra el contenido verticalmente */
     padding: 100px 0;
-    background-color: #ecf0f1;
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
     flex-grow: 1; /* Esto hace que ocupe el espacio restante entre el navbar y el footer */
-    text-align: center; /* Asegura que todo el texto esté centrado */
+    text-align: center;
 }
 
 /* Títulos y contenido de la sección Sobre Mí */

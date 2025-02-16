@@ -3,29 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bienvenido a la página de Víctor Suárez Cruz, Administrador de Sistemas y experto en Ciberseguridad.">
-    <meta name="keywords" content="Ciberseguridad, Sistemas, Redes, Seguridad Informática">
+    <meta name="description" content="Portfolio de Víctor Suárez Cruz, Administrador de Sistemas y experto en Ciberseguridad.">
+    <meta name="keywords" content="Ciberseguridad, Sistemas, Redes, Seguridad Informática, DevOps, SysAdmin">
     <title>Inicio - Víctor Suárez Cruz</title>
     <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="assets/js/index.js"></script>
 </head>
 <body>
     <nav>
-        <a href="index.html">Inicio</a>
-        <a href="projects/projects.html">Proyectos</a>        
-        <a href="about/about.html">Sobre Mí</a>
-        <a href="contact/contact.html">Contacto</a>
+        <div class="logo">VSC</div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <a href="projects/projects.html">Proyectos</a>
+            <a href="about/about.html">Sobre Mí</a>
+            <a href="contact/contact.html">Contacto</a>
+        </div>
     </nav>
 
     <section class="hero">
         <div class="container">
             <h1>Víctor Suárez Cruz</h1>
-            <p>Administrador de Sistemas</p>
-            <a href="projects/projects.html" class="cta-btn">Ver Mis Proyectos</a>
+            <p>Administrador de Sistemas & Especialista en Ciberseguridad</p>
+            <a href="projects/projects.html" class="cta-btn">Explorar Proyectos</a>
         </div>
     </section>
 
+    <section class="skills">
+        <h2>Habilidades</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <img src="assets/img/JavaScript.png" alt="JavaScript" class="skill-logo">
+                <p>JavaScript</p>
+            </div>
+            <div class="skill">
+                <img src="assets/img/PHP.png" alt="PHP" class="skill-logo">
+                <p>PHP</p>
+            </div>
+            <div class="skill">
+                <img src="assets/img/AWS.png" alt="AWS" class="skill-logo">
+                <p>AWS</p>
+            </div>
+            <div class="skill">
+                <img src="assets/img/LinuxLogo.png" alt="Linux" class="skill-logo">
+                <p>Linux</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects-preview">
+        <h2>Mis Proyectos Destacados</h2>
+        <div class="projects-container">
+
+            <div class="project">
+                <h3>Checkports</h3>
+                <p>CheckPorts escanea puertos, realiza análisis sigiloso y detecta IPs maliciosas, todo enfocado en la ciberseguridad. <br>(Working with sh)</p>
+                <a href="projects/checkports/checkports.docx" class="project-btn">Ver proyecto</a>
+            </div>
+            <div class="project">
+                <h3>SpendyGraph</h3>
+                <p>Página web sobre Finanzas <br>(no finalizado).</p>
+                <a href="projects/SpendyGraph/view/login.html" class="project-btn">Ver proyecto</a>
+            </div>
+            <div class="project">
+                <h3>MyChallenges</h3>
+                <p>First Challenge <br>(Trabajando con CSS3 y HTML5)</p>
+                <a href="projects/minimal card/index.html" class="project-btn">Ver proyecto</a>
+            </div>
+        </div>
+    </section>
+    
+
     <footer>
-        <p>&copy; 2025 Víctor Suárez Cruz | Todos los derechos reservados</p>
+        <div class="footer-info">
+            <p>&copy; 2025 Víctor Suárez Cruz | Todos los derechos reservados</p>
+        </div>
     </footer>
 </body>
 </html>
