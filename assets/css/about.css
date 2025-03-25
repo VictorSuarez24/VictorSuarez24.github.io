@@ -1,11 +1,15 @@
 /* Asegurarse de que body ocupe toda la altura de la ventana */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
     color: white;
 }
 
