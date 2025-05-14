@@ -8,8 +8,11 @@ const PORT = 3000;
 app.use(express.json());
 app.use(cors());
 
-const token = 'Bearer '; //PON AQUI TU API
-const haURL = 'http://192.168.1.1:8123'; //PON AQUI LA IP DE HOME ASSISTANT
+// Reemplaza con tu token de Home Assistant
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhYjQ3YTdjNGQwODQ0NDY3YmNlZTYwMWJmNTg4MzUzZSIsImlhdCI6MTc0Mjc1OTcxOSwiZXhwIjoyMDU4MTE5NzE5fQ.KVdGeE4byLteFuumxcBKgjP-vG4DZMMnBQs2ADccBuI'; 
+
+// Reemplaza con tu IP de Home Assistant
+const haURL = 'http://192.168.1.200:8123'; 
 
 // Ruta para encender la luz
 app.post('/api/services/light/turn_on', async (req, res) => {
