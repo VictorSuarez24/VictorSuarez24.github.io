@@ -1,93 +1,215 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Víctor Suárez Cruz, Administrador de Sistemas y experto en Ciberseguridad.">
-    <meta name="keywords" content="Ciberseguridad, Sistemas, Redes, Seguridad Informática, DevOps, SysAdmin">
-    <title>Inicio - Víctor Suárez Cruz</title>
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <script src="assets/js/index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Portafolio Personal</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav>
-        <div class="logo">VSC</div>
-        <div class="nav-links">
-            <a href="index.html">Inicio</a>
-            <a href="projects/projects.html">Proyectos</a>
-            <a href="about/about.html">Sobre Mí</a>
-            <a href="contact/contact.html">Contacto</a>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">Victor Suárez</a>
+      <div class="menu-toggle">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="active">Inicio</a></li>
+        <li><a href="#projects">Proyectos</a></li>
+        <li><a href="#contact">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Víctor Suárez Cruz</h1>
-            <p>Administrador de Sistemas & Especialista en Ciberseguridad</p>
-            <a href="projects/projects.html" class="cta-btn">Explorar Proyectos</a>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Hola, soy <span class="highlight">Victor Suárez</span></h1>
+        <h2>Desarrollador Web</h2>
+        <p>Especializado en crear experiencias web modernas y atractivas</p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary">Ver Proyectos</a>
+          <a href="#contact" class="btn btn-secondary">Contactar</a>
         </div>
-    </section>
-
-    <section class="skills">
-        <h2>Habilidades</h2>
-        <div class="skills-container">
-            <div class="skill">
-                <img src="assets/img/JavaScript.png" alt="JavaScript" class="skill-logo">
-                <p>JavaScript</p>
-            </div>
-            <div class="skill">
-                <img src="assets/img/PHP.png" alt="PHP" class="skill-logo">
-                <p>PHP</p>
-            </div>
-            <div class="skill">
-                <img src="assets/img/AWS.png" alt="AWS" class="skill-logo">
-                <p>AWS</p>
-            </div>
-            <div class="skill">
-                <img src="assets/img/LinuxLogo.png" alt="Linux" class="skill-logo">
-                <p>Linux</p>
-            </div>
-            <div class="skill">
-                <img src="assets/img/HA.png" alt="HomeAssistant" class="skill-logo">
-                <p>Home Assistant</p>
-            </div>
-            <div class="skill">
-                <img src="assets/img/Cisco.png" alt="Cisco" class="skill-logo">
-                <p>Cisco</p>
-            </div>
+        <div class="social-links">
+          <a href="https://github.com/VictorSuarez24" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
         </div>
-    </section>
+      </div>
+      <div class="hero-image">
+        <img src="https://via.placeholder.com/400x400" alt="Mi Foto">
+      </div>
+    </div>
+  </section>
 
-    <section class="projects-preview">
-        <h2>Mis Proyectos Destacados</h2>
-        <div class="projects-container">
-
-            <div class="project">
-                <h3>Checkports</h3>
-                <p>CheckPorts escanea puertos, realiza análisis sigiloso y detecta IPs maliciosas, todo enfocado en la ciberseguridad. <br>(Working with sh)</p>
-                <a href="projects/checkports/checkports.docx" class="project-btn">Ver proyecto</a>
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header">
+        <h2>Mis Proyectos</h2>
+        <p>Algunos de mis trabajos recientes</p>
+      </div>
+      
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400" alt="Proyecto 1">
+          </div>
+          <div class="project-info">
+            <h3>Proyecto 1</h3>
+            <p>Sitio web responsive para una empresa de tecnología</p>
+            <div class="project-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
             </div>
-            <div class="project">
-                <h3>SpendyGraph</h3>
-                <p>Página web sobre Finanzas <br>(no finalizado).</p>
-                <a href="projects/SpendyGraph/view/login.html" class="project-btn">Ver proyecto</a>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Ver Proyecto</a>
+              <a href="https://github.com/VictorSuarez24" target="_blank"><i class="fab fa-github"></i> Código</a>
             </div>
-            <div class="project">
-                <h3>MyChallenges</h3>
-                <p>First Challenge <br>(Trabajando con CSS3 y HTML5)</p>
-                <a href="projects/minimal card/index.html" class="project-btn">Ver proyecto</a>
-            </div>
+          </div>
         </div>
-    </section>
-    
-
-    <footer>
-        <div class="footer-info">
-            <p>&copy; 2025 Víctor Suárez Cruz | Todos los derechos reservados</p>
+        
+        <!-- Project 2 -->
+        <div class="project-card" data-category="app">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400" alt="Proyecto 2">
+          </div>
+          <div class="project-info">
+            <h3>Proyecto 2</h3>
+            <p>Aplicación web para gestión de tareas</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Ver Proyecto</a>
+              <a href="https://github.com/VictorSuarez24" target="_blank"><i class="fab fa-github"></i> Código</a>
+            </div>
+          </div>
         </div>
-    </footer>
+        
+        <!-- Project 3 -->
+        <div class="project-card" data-category="design">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400" alt="Proyecto 3">
+          </div>
+          <div class="project-info">
+            <h3>Proyecto 3</h3>
+            <p>Diseño de interfaz para aplicación móvil</p>
+            <div class="project-tags">
+              <span>Figma</span>
+              <span>UI/UX</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Ver Proyecto</a>
+              <a href="https://github.com/VictorSuarez24" target="_blank"><i class="fab fa-github"></i> Código</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 4 -->
+        <div class="project-card" data-category="web">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400" alt="Proyecto 4">
+          </div>
+          <div class="project-info">
+            <h3>Proyecto 4</h3>
+            <p>E-commerce para tienda local</p>
+            <div class="project-tags">
+              <span>React</span>
+              <span>Express</span>
+              <span>MySQL</span>
+            </div>
+            <div class="project-links">
+              <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Ver Proyecto</a>
+              <a href="https://github.com/VictorSuarez24" target="_blank"><i class="fab fa-github"></i> Código</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contacto</h2>
+        <p>¿Interesado en trabajar juntos? ¡Hablemos!</p>
+      </div>
+      
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h3>Email</h3>
+              <p>correo@ejemplo.com</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h3>Teléfono</h3>
+              <p>+34 600 000 000</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <h3>Ubicación</h3>
+              <p>Madrid, España</p>
+            </div>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://github.com/VictorSuarez24" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="/assets/cv.pdf" download="Victor_Suarez_CV.pdf" class="cv-download"><i class="fas fa-file-download"></i></a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Victor Suárez. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
