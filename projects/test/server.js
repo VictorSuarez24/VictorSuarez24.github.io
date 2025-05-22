@@ -6,46 +6,63 @@ const app = express();
 const PORT = 3000;
 
 app.use(express.json());
+
+// Permitir CORS para cualquier origen (mejor para test)
 app.use(cors());
 
-// Reemplaza con tu token de Home Assistant
-const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhYjQ3YTdjNGQwODQ0NDY3YmNlZTYwMWJmNTg4MzUzZSIsImlhdCI6MTc0Mjc1OTcxOSwiZXhwIjoyMDU4MTE5NzE5fQ.KVdGeE4byLteFuumxcBKgjP-vG4DZMMnBQs2ADccBuI'; 
-
-// Reemplaza con tu IP de Home Assistant
-const haURL = 'http://192.168.1.200:8123'; 
-
-// Ruta para encender la luz
-app.post('/api/services/light/turn_on', async (req, res) => {
-  try {
-    const response = await axios.post(`${haURL}/api/services/light/turn_on`, req.body, {
-      headers: {
-        Authorization: token,
-        'Content-Type': 'application/json',
-      },
-    });
-    res.json(response.data);
-  } catch (err) {
-    console.error('Error al encender:', err.message);
-    res.status(err.response?.status || 500).send('Error al encender la luz');
-  }
+// Middleware para loguear peticiones
+app.use((req, res, next) => {
+  console.log(`Petición recibida: ${req.method} ${req.path}`);
+  next();
 });
 
-// Ruta para apagar la luz
-app.post('/api/services/light/turn_off', async (req, res) => {
+const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIwMzBhZDRhNWNjYTA0ZjNkOTJiMzRhOTdlOWJhNTViMCIsImlhdCI6MTc0NzI1ODA1MywiZXhwIjoyMDYyNjE4MDUzfQ.v4EnJcUIHJ9Vb3LcFd2XMQ8OV8qa-mreOVbACZNo8ok';
+const haURL = 'http://homeassistant.local:8123';
+
+const sendRequestToHA = async (service, entityId) => {
+  if (!entityId) throw new Error('No se proporcionó entity_id');
   try {
-    const response = await axios.post(`${haURL}/api/services/light/turn_off`, req.body, {
+    const response = await axios.post(`${haURL}/api/services/light/${service}`, { entity_id: entityId }, {
       headers: {
         Authorization: token,
         'Content-Type': 'application/json',
       },
     });
-    res.json(response.data);
+    return response.data;
   } catch (err) {
-    console.error('Error al apagar:', err.message);
-    res.status(err.response?.status || 500).send('Error al apagar la luz');
+    const msg = err.response?.data?.message || err.message || 'Error desconocido';
+    throw new Error(`Error al ${service === 'turn_on' ? 'encender' : 'apagar'} la luz: ${msg}`);
+  }
+};
+app.post('/api/test', (req, res) => {
+  res.json({ message: "Ruta test OK" });
+});
+
+app.post('/api/light/:action', async (req, res) => {
+  const { action } = req.params;
+  const { entity_id } = req.body;
+
+  if (!['on', 'off'].includes(action)) {
+    return res.status(400).json({ error: 'Acción no válida. Debe ser "on" o "off".' });
+  }
+
+  if (!entity_id) {
+    return res.status(400).json({ error: 'No se proporcionó entity_id en el cuerpo.' });
+  }
+
+  try {
+    const result = await sendRequestToHA(`turn_${action}`, entity_id);
+    res.json(result);
+  } catch (error) {
+    console.error('Error en backend:', error.message);
+    res.status(500).json({ error: error.message });
   }
 });
 
 app.listen(PORT, () => {
-  console.log(`Servidor proxy corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
+});
+app.post('/api/light/:action', async (req, res) => {
+  console.log('Entró en /api/light/:action');
+  // resto igual
 });
