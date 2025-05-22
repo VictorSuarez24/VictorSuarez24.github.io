@@ -1,0 +1,440 @@
+
+:root {
+    /* Light mode variables */
+    --background: #f8f9fa;
+    --foreground: #333;
+    --card-bg: #fff;
+    --card-border: #e0e0e0;
+    --primary: #03a9f4;
+    --primary-hover: #0288d1;
+    --sidebar-bg: #fff;
+    --topbar-bg: #03a9f4;
+    --topbar-color: #fff;
+    --device-active: #4caf50;
+    --device-inactive: #9e9e9e;
+    --device-warning: #ffc107;
+    --device-error: #f44336;
+    --muted: #6c757d;
+  }
+  
+  .dark {
+    /* Dark mode variables */
+    --background: #121212;
+    --foreground: #f8f9fa;
+    --card-bg: #1e1e1e;
+    --card-border: #333;
+    --primary: #03a9f4;
+    --primary-hover: #4fc3f7;
+    --sidebar-bg: #1e1e1e;
+    --topbar-bg: #0288d1;
+    --topbar-color: #fff;
+    --device-active: #4caf50;
+    --device-inactive: #6c757d;
+    --device-warning: #ffc107;
+    --device-error: #f44336;
+    --muted: #9e9e9e;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* TopBar Styles */
+  .topbar {
+    background-color: var(--topbar-bg);
+    color: var(--topbar-color);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .sidebar-toggle {
+    background: none;
+    border: none;
+    color: var(--topbar-color);
+    margin-right: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+  }
+  
+  .sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+  
+  /* Main Container */
+  .main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* Sidebar Styles */
+  .sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    overflow-y: auto;
+  }
+  
+  .sidebar.closed {
+    width: 0;
+    overflow: hidden;
+  }
+  
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 16px 8px;
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--foreground);
+    border-radius: 8px;
+    margin-bottom: 4px;
+    transition: all 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .dark .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .nav-link.active {
+    background-color: rgba(3, 169, 244, 0.1);
+    color: var(--primary);
+  }
+  
+  .nav-link .icon {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .active .icon {
+    color: var(--primary);
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
+  }
+  
+  .dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .refresh-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    color: var(--foreground);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .refresh-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .dark .refresh-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .refresh-btn svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .refresh-btn.refreshing svg {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Device Grid */
+  .device-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  /* Device Card Styles */
+  .device-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .device-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .device-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .device-title {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  .device-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .dark .device-icon {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .device-active {
+    color: var(--device-active);
+  }
+  
+  .device-inactive {
+    color: var(--device-inactive);
+  }
+  
+  .device-warning {
+    color: var(--device-warning);
+  }
+  
+  .device-error {
+    color: var(--device-error);
+  }
+  
+  /* Device Content Styles */
+  .device-content {
+    margin-bottom: 12px;
+  }
+  
+  /* Toggle Switch */
+  .toggle-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--device-inactive);
+    transition: .4s;
+    border-radius: 20px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--device-active);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(16px);
+  }
+  
+  /* Slider Control */
+  .slider-container {
+    margin-top: 8px;
+  }
+  
+  .slider-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  
+  .range-slider {
+
+    width: 100%;
+    height: 4px;
+    border-radius: 5px;
+    background: var(--device-inactive);
+    outline: none;
+  }
+  
+  .range-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+  }
+  
+  .range-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+  }
+  
+  /* Sensor Reading */
+  .sensor-reading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sensor-value {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .sensor-unit {
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+  
+  /* Device Footer */
+  .device-footer {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  
+  /* Theme Toggle Button */
+  .theme-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .theme-toggle:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+  }
+  
+  .hidden {
+    display: none;
+  }
+
+  .add-device-btn{
+    background: rgb(133, 133, 208);
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .sidebar {
+      position: fixed;
+      top: 56px;
+      bottom: 0;
+      z-index: 5;
+    }
+    
+    .device-grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .device-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  

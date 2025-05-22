@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomeLink</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="app" class="app">
+      <header class="topbar">
+        <button id="sidebar-toggle" class="sidebar-toggle">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <h1>HomeLink</h1>
+      </header>
+
+      <div class="main-container">
+        <aside id="sidebar" class="sidebar">
+          <nav class="nav-links">
+            <a href="#" class="nav-link active">
+              <span class="icon">
+                  <i class="fa-solid fa-house"></i>
+              </span>
+              <span>Dashboard</span>
+            </a>
+            
+            <a href="#" class="nav-link">
+              <span class="icon">
+                <i class="fa-solid fa-lightbulb"></i>
+              </span>
+              <span>Lights</span>
+            </a>
+            
+            <a href="#" class="nav-link">
+              <span class="icon">
+                <i class="fa-solid fa-lock"></i>
+              </span>
+              <span>Security</span>
+            </a>
+
+             <a href="#" class="nav-link">
+              <span class="icon">
+                <i class="fa-solid fa-file-lines"></i>
+              </span>
+              <span>Logs</span>
+            </a>
+            
+            <a href="#" class="nav-link">
+              <span class="icon">
+                 <i class="fa-solid fa-gear"></i>
+              </span>
+              <span>Settings</span>
+            </a>
+          </nav>
+        </aside>
+
+        <main class="main-content">
+          <div class="dashboard-header">
+            <h2>Dashboard</h2>
+             <button id="add-device-btn" class="add-device-btn">
+              <i class="fa-solid fa-plus"></i>
+              Add Device
+            </button>
+          </div>
+
+          <div id="device-grid" class="device-grid">
+            <!-- Devices will be rendered here by JavaScript -->
+          </div>
+        </main>
+      </div>
+
+      <button id="theme-toggle" class="theme-toggle">
+        <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+        <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+      </button>
+    </div>
+
+    <script src="main.js" type="module"></script>
+  </body>
+</html>
