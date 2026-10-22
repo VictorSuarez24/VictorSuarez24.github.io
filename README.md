@@ -17,26 +17,24 @@ Portfolio personal de Víctor Suárez, especialista en ciberseguridad, sistemas 
 - Lucide React
 - Exportación estática compatible con GitHub Pages
 
-## Desarrollo local
+## Despliegue en GitHub Pages
 
-```bash
-npm install
-npm run dev
-```
+El sitio es 100% estático y está preparado para funcionar directamente en GitHub Pages con el dominio personalizado [`racorp.dev`](https://racorp.dev):
 
-Abre [http://localhost:3000](http://localhost:3000) para ver la página.
+- **Archivos estáticos en la raíz**: `index.html`, `_next/`, `404.html`, `CNAME` y `.nojekyll`.
+- **Sin servidores locales**: no requiere ejecutar servidores Node.js ni procesos locales para funcionar; GitHub Pages sirve los archivos directamente al hacer push al repositorio.
+- **Archivo CNAME**: mantiene el dominio personalizado apuntando a `racorp.dev`.
+- **Archivo .nojekyll**: asegura que GitHub Pages sirva correctamente los recursos dentro de la carpeta `_next/`.
 
-## Compilación
+## Compilación (opcional)
+
+Si en el futuro realizas cambios en el código fuente (`app/`):
 
 ```bash
 npm run build
 ```
 
-El sitio estático se genera en `out/`. `next.config.js` usa `output: 'export'` e imágenes sin optimización para mantener compatibilidad total con GitHub Pages.
-
-## Despliegue
-
-El workflow de [GitHub Actions](.github/workflows/deploy.yml) compila y despliega automáticamente al hacer push a `main`. El archivo `public/CNAME` conserva el dominio personalizado en cada publicación.
+Esto recompila el sitio estático y actualiza automáticamente los archivos en la raíz del repositorio listos para GitHub Pages.
 
 ## Enlaces
 

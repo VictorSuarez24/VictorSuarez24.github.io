@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "next build && node -e \"require('fs').cpSync('out', '.', {recursive: true})\"",
     "lint": "next lint"
   },
   "dependencies": {
