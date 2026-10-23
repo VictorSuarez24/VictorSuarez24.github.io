@@ -8,6 +8,8 @@ Portfolio personal de Víctor Suárez, especialista en ciberseguridad, sistemas 
 - Contenido en español e inglés: se adapta al idioma del navegador y permite cambiarlo manualmente.
 - Terminal interactiva con perfil, capacidades y estado de homelab.
 - Enlaces directos a proyectos de GitHub y perfil profesional de LinkedIn.
+- Carrusel de cuatro insignias Cisco con imágenes locales y enlaces directos a su verificación pública en Credly.
+- Descarga del CV en PDF junto al contacto.
 - Contacto mediante cliente de correo, sin formularios ni servicios externos.
 
 ## Stack
@@ -26,7 +28,16 @@ El sitio es 100% estático y está preparado para funcionar directamente en GitH
 - **Archivo CNAME**: mantiene el dominio personalizado apuntando a `racorp.dev`.
 - **Archivo .nojekyll**: asegura que GitHub Pages sirva correctamente los recursos dentro de la carpeta `_next/`.
 
-## Compilación (opcional)
+## Previsualización local
+
+```bash
+npm install
+npm run dev
+```
+
+Abre [http://localhost:3000](http://localhost:3000) en el navegador. Los cambios en `app/` se reflejan automáticamente.
+
+## Compilación
 
 Si en el futuro realizas cambios en el código fuente (`app/`):
 
@@ -35,6 +46,8 @@ npm run build
 ```
 
 Esto recompila el sitio estático y actualiza automáticamente los archivos en la raíz del repositorio listos para GitHub Pages.
+
+Las imágenes de las insignias están en `public/certifications/` y proceden de las credenciales públicas de Cisco en Credly. El CV descargable está en `public/Victor_Suarez_CV.pdf`; se recuperó de una versión anterior del repositorio (enero de 2026), por lo que conviene sustituirlo cuando haya una versión más reciente.
 
 ## Enlaces
 

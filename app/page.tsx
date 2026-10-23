@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ArrowDownRight, ChevronRight, Code2, Database, ExternalLink, Github, Globe2, Linkedin, LockKeyhole, Mail, Network, Radar, ServerCog, ShieldCheck } from 'lucide-react';
+import { ArrowDownRight, ChevronRight, Code2, Database, Download, ExternalLink, Github, Globe2, Linkedin, LockKeyhole, Mail, Network, Radar, ServerCog, ShieldCheck } from 'lucide-react';
+import CertificationCarousel from './CertificationCarousel';
 
 const email = 'vicsuarezcruz@gmail.com';
 type Locale = 'en' | 'es';
@@ -9,7 +10,7 @@ type Command = 'whoami' | 'neofetch --skills' | 'status';
 
 const content = {
   es: {
-    nav: ['Proyectos', 'Especialidades', 'Sobre mí'],
+    nav: ['Proyectos', 'Especialidades', 'Certificaciones', 'Sobre mí'],
     badge: 'Especialista en Ciberseguridad y Sistemas', availability: '// disponible para proyectos con propósito',
     title: 'Ingeniero de Ciberseguridad y Sistemas',
     intro: 'Defiendo entornos de Active Directory, construyo herramientas OSINT y despliego infraestructura autoalojada. De la detección de amenazas a APIs en FastAPI.',
@@ -19,10 +20,12 @@ const content = {
     projectBody: 'Seguridad, automatización e infraestructura con una mentalidad orientada a la práctica.', viewRepo: 'Ver repositorio',
     capabilities: 'Matriz de capacidades', skillsTitle: 'Una base técnica, tres áreas de profundidad.',
     skillsBody: 'El contexto cambia; la disciplina es la misma: entender el sistema antes de decidir cómo protegerlo o construirlo.',
-    background: '03 / Trayectoria', aboutTitle: 'Pensar como defensor. Construir como ingeniero.',
+    certificationsEyebrow: '03 / Credenciales', certificationsTitle: 'Aprender, practicar, acreditar.',
+    certificationsBody: 'Una selección de certificaciones y cursos de redes, infraestructura y desarrollo publicados en mi perfil profesional.',
+    background: '04 / Trayectoria', aboutTitle: 'Pensar como defensor. Construir como ingeniero.',
     aboutBody: 'Formación académica y práctica técnica para abordar la seguridad desde el detalle operativo hasta la arquitectura.',
     openChannel: 'Canal abierto', contactTitle: '¿Hablamos de seguridad, sistemas o software?',
-    contactBody: 'Para colaboraciones, oportunidades o una conversación técnica.', terminalShortcuts: 'Atajos de terminal',
+    contactBody: 'Para colaboraciones, oportunidades o una conversación técnica.', downloadCv: 'Descargar CV', terminalShortcuts: 'Atajos de terminal',
     footer: '© Víctor Suárez. Todos los derechos reservados.',
     skills: [
       ['Ciberseguridad', ['Defensa de Active Directory', 'OSINT y reconocimiento', 'Detección de amenazas', 'Pentesting / Kali Linux']],
@@ -47,7 +50,7 @@ const content = {
     ],
   },
   en: {
-    nav: ['Projects', 'Specialties', 'About'],
+    nav: ['Projects', 'Specialties', 'Certifications', 'About'],
     badge: 'Cybersecurity & Systems Specialist', availability: '// available for meaningful work',
     title: 'Cybersecurity & Systems Engineer',
     intro: 'I defend Active Directory environments, build OSINT tooling, and deploy self-hosted infrastructure. From threat detection to FastAPI APIs.',
@@ -57,10 +60,12 @@ const content = {
     projectBody: 'Security, automation, and infrastructure built with a practical mindset.', viewRepo: 'View repository',
     capabilities: 'Capabilities matrix', skillsTitle: 'One technical foundation, three areas of depth.',
     skillsBody: 'The context changes; the discipline stays the same: understand the system before deciding how to protect or build it.',
-    background: '03 / Background', aboutTitle: 'Think like a defender. Build like an engineer.',
+    certificationsEyebrow: '03 / Credentials', certificationsTitle: 'Learn, practice, earn.',
+    certificationsBody: 'A selection of networking, infrastructure, and development credentials and courses listed on my professional profile.',
+    background: '04 / Background', aboutTitle: 'Think like a defender. Build like an engineer.',
     aboutBody: 'Academic training and hands-on practice to approach security from operational detail through to architecture.',
     openChannel: 'Open channel', contactTitle: 'Shall we talk security, systems, or software?',
-    contactBody: 'For collaborations, opportunities, or a technical conversation.', terminalShortcuts: 'Terminal shortcuts',
+    contactBody: 'For collaborations, opportunities, or a technical conversation.', downloadCv: 'Download CV', terminalShortcuts: 'Terminal shortcuts',
     footer: '© Víctor Suárez. All rights reserved.',
     skills: [
       ['Cybersecurity', ['Active Directory Defense', 'OSINT & Reconnaissance', 'Threat Detection', 'Pentesting / Kali Linux']],
@@ -106,7 +111,7 @@ export default function Home() {
       <nav className="sticky top-0 z-50 border-b border-white/[0.07] bg-ink/75 backdrop-blur-xl">
         <div className="mx-auto flex h-[70px] max-w-6xl items-center justify-between px-5 lg:px-8">
           <a href="#top" className="group flex items-center gap-2 font-mono text-sm font-bold tracking-tight text-white" aria-label="Home"><span className="text-terminal transition-transform group-hover:scale-125">●</span>racorp<span className="text-terminal">.</span>dev</a>
-          <div className="hidden items-center gap-7 text-sm text-slate-300 md:flex"><a className="nav-link" href="#projects">{t.nav[0]}</a><a className="nav-link" href="#skills">{t.nav[1]}</a><a className="nav-link" href="#about">{t.nav[2]}</a></div>
+          <div className="hidden items-center gap-7 text-sm text-slate-300 md:flex"><a className="nav-link" href="#projects">{t.nav[0]}</a><a className="nav-link" href="#skills">{t.nav[1]}</a><a className="nav-link" href="#certifications">{t.nav[2]}</a><a className="nav-link" href="#about">{t.nav[3]}</a></div>
           <div className="flex items-center gap-1.5">
             <div className="mr-1 flex overflow-hidden rounded-md border border-white/[0.1] text-[10px] font-semibold"><button type="button" onClick={() => setLocale('es')} aria-pressed={locale === 'es'} className={'language-button ' + (locale === 'es' ? 'language-button-active' : '')}>ES</button><button type="button" onClick={() => setLocale('en')} aria-pressed={locale === 'en'} className={'language-button ' + (locale === 'en' ? 'language-button-active' : '')}>EN</button></div>
             <Globe2 className="hidden text-slate-600 sm:block" size={15} aria-hidden="true" />
@@ -140,12 +145,23 @@ export default function Home() {
         <div className="mt-14 grid gap-4 lg:grid-cols-3"><SkillCard icon={<LockKeyhole size={21} />} title={t.skills[0][0]} items={t.skills[0][1]} /><SkillCard icon={<ServerCog size={21} />} title={t.skills[1][0]} items={t.skills[1][1]} /><SkillCard icon={<Code2 size={21} />} title={t.skills[2][0]} items={t.skills[2][1]} /></div>
       </div></section>
 
+      <section id="certifications" className="scroll-mt-20 overflow-hidden border-t border-white/[0.06] bg-[#0c1018]/70 py-24 sm:py-32">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
+          <div className="max-w-2xl">
+            <p className="font-mono text-xs uppercase tracking-[.2em] text-terminal">{t.certificationsEyebrow}</p>
+            <h2 className="mt-5 text-3xl font-semibold tracking-[-.04em] text-white sm:text-4xl">{t.certificationsTitle}</h2>
+            <p className="mt-5 max-w-xl text-sm leading-7 text-slate-400">{t.certificationsBody}</p>
+          </div>
+          <CertificationCarousel locale={locale} />
+        </div>
+      </section>
+
       <section id="about" className="scroll-mt-20 border-t border-white/[0.06] bg-surface/40 py-24 sm:py-32"><div className="mx-auto grid max-w-6xl gap-12 px-5 lg:grid-cols-[.78fr_1.22fr] lg:px-8">
         <div><p className="font-mono text-xs uppercase tracking-[.2em] text-terminal">{t.background}</p><h2 className="mt-5 text-3xl font-semibold tracking-[-.04em] text-white sm:text-4xl">{t.aboutTitle}</h2><p className="mt-5 max-w-md leading-7 text-slate-400">{t.aboutBody}</p></div>
         <div className="space-y-0 border-l border-white/10">{t.education.map(([year, title, school]) => <Education key={year} year={year} title={title} school={school} />)}</div>
       </div></section>
 
-      <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8"><div className="relative overflow-hidden rounded-2xl border border-cyber/20 bg-gradient-to-br from-cyber/15 via-surface to-terminal/10 p-8 sm:p-12"><Database className="absolute -right-5 -top-5 h-36 w-36 text-cyber/10" /><p className="font-mono text-xs uppercase tracking-[.2em] text-cyber">{t.openChannel}</p><h2 className="relative mt-4 max-w-xl text-3xl font-semibold tracking-[-.04em] text-white sm:text-4xl">{t.contactTitle}</h2><p className="relative mt-3 text-sm text-slate-400">{t.contactBody}</p><a href={'mailto:' + email} className="primary-button relative mt-8"><Mail size={17} />{t.contactButton}</a><p className="relative mt-3 font-mono text-xs text-slate-500">{email}</p></div></section>
+      <section className="mx-auto max-w-6xl px-5 py-20 lg:px-8"><div className="relative overflow-hidden rounded-2xl border border-cyber/20 bg-gradient-to-br from-cyber/15 via-surface to-terminal/10 p-8 sm:p-12"><Database className="absolute -right-5 -top-5 h-36 w-36 text-cyber/10" /><p className="font-mono text-xs uppercase tracking-[.2em] text-cyber">{t.openChannel}</p><h2 className="relative mt-4 max-w-xl text-3xl font-semibold tracking-[-.04em] text-white sm:text-4xl">{t.contactTitle}</h2><p className="relative mt-3 text-sm text-slate-400">{t.contactBody}</p><div className="relative mt-8 flex flex-wrap gap-3"><a href={'mailto:' + email} className="primary-button"><Mail size={17} />{t.contactButton}</a><a href="/Victor_Suarez_CV.pdf" download="Victor_Suarez_CV.pdf" className="secondary-button"><Download size={17} />{t.downloadCv}</a></div><p className="relative mt-3 font-mono text-xs text-slate-500">{email}</p></div></section>
 
       <footer className="border-t border-white/[0.06]"><div className="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between lg:px-8"><p>{t.footer}</p><div className="flex gap-5"><a href="https://github.com/VictorSuarez24" target="_blank" rel="noreferrer" className="footer-link">GitHub</a><a href="https://www.linkedin.com/in/victorsuarezcruz/" target="_blank" rel="noreferrer" className="footer-link">LinkedIn</a></div></div></footer>
     </main>

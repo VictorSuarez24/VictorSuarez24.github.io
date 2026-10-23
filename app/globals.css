@@ -21,7 +21,11 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .footer-link { @apply text-slate-400 transition hover:text-terminal; }
   .language-button { @apply px-2 py-1.5 text-slate-500 transition hover:bg-white/[0.06] hover:text-slate-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-terminal; }
   .language-button-active { @apply bg-terminal/15 text-emerald-200; }
+  .carousel-arrow { @apply grid h-9 w-9 place-items-center rounded-full border border-white/[0.12] text-slate-300 transition hover:border-terminal/50 hover:bg-terminal/10 hover:text-terminal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terminal disabled:cursor-not-allowed disabled:opacity-30; }
 }
+
+.certification-track { scrollbar-width: none; }
+.certification-track::-webkit-scrollbar { display: none; }
 
 .grid-fade { background-image: linear-gradient(rgba(59,130,246,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,.045) 1px, transparent 1px), radial-gradient(ellipse 55% 38% at 70% 10%, rgba(16,185,129,.09), transparent); background-size: 42px 42px, 42px 42px, auto; mask-image: linear-gradient(to bottom, black 0%, rgba(0,0,0,.4) 40%, transparent 80%); }
 .text-gradient { background: linear-gradient(100deg, #f8fafc 10%, #a7f3d0 48%, #93c5fd 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
