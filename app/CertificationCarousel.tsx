@@ -45,7 +45,8 @@ export default function CertificationCarousel({ locale }: { locale: Locale }) {
     if (!track) return;
     const target = Math.max(0, Math.min(certifications.length - 1, index));
     const card = track.children[target] as HTMLElement;
-    const left = card.offsetLeft - track.offsetLeft - (track.clientWidth - card.clientWidth) / 2;
+    const inset = window.innerWidth >= 1024 ? 0 : 20;
+    const left = track.scrollLeft + card.getBoundingClientRect().left - track.getBoundingClientRect().left - inset;
     track.scrollTo({ left, behavior: 'smooth' });
     setActive(target);
   }, []);
@@ -53,10 +54,10 @@ export default function CertificationCarousel({ locale }: { locale: Locale }) {
   const updateActive = () => {
     const track = trackRef.current;
     if (!track) return;
-    const center = track.getBoundingClientRect().left + track.clientWidth / 2;
+    const leftEdge = track.getBoundingClientRect().left + (window.innerWidth >= 1024 ? 0 : 20);
     const nearest = Array.from(track.children).reduce((best, item, index) => {
       const rect = item.getBoundingClientRect();
-      const distance = Math.abs(rect.left + rect.width / 2 - center);
+      const distance = Math.abs(rect.left - leftEdge);
       return distance < best.distance ? { index, distance } : best;
     }, { index: 0, distance: Infinity });
     setActive(nearest.index);
@@ -79,7 +80,7 @@ export default function CertificationCarousel({ locale }: { locale: Locale }) {
 
       <div
         ref={trackRef}
-        className="certification-track -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-6 lg:mx-0 lg:px-[max(0px,calc((100%-360px)/2))]"
+        className="certification-track -mx-5 flex snap-x snap-mandatory scroll-pl-5 gap-4 overflow-x-auto pb-6 pl-5 pr-[max(20px,calc(100%-340px))] lg:mx-0 lg:scroll-pl-0 lg:pl-0"
         onScroll={updateActive}
         onKeyDown={(event) => {
           if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
@@ -98,7 +99,7 @@ export default function CertificationCarousel({ locale }: { locale: Locale }) {
             href={certificate.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="certification-card group relative flex w-[min(83vw,340px)] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border border-white/[0.1] bg-[#121b28] transition duration-300 hover:-translate-y-1 hover:border-terminal/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terminal sm:w-[340px]"
+            className={`certification-card group relative flex w-[min(83vw,340px)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border bg-[#121b28] transition duration-300 hover:-translate-y-1 hover:border-terminal/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terminal sm:w-[340px] ${active === index ? 'border-terminal/35 shadow-[0_12px_40px_rgba(16,185,129,.08)]' : 'border-white/[0.1]'}`}
             aria-label={`${certificate.title} — ${locale === 'es' ? 'verificar credencial en Credly' : 'verify credential on Credly'}`}
           >
             <span className="pointer-events-none absolute right-5 top-4 z-10 font-mono text-xs text-slate-500">0{index + 1}</span>
